@@ -19,9 +19,7 @@ export class CompaniesComponent implements OnInit {
 
     constructor(private matDialog: MatDialog) {}
 
-    ngOnInit(): void {
-        // console.log('dataOfContacts  ::    ' + JSON.stringify(this.dataOfContacts.length));
-    }
+    ngOnInit(): void {}
 
     showContacts(data: any) {
         const finalList = [];
@@ -32,9 +30,8 @@ export class CompaniesComponent implements OnInit {
                     finalList.push(contact);
                 }
             }
-            
+        
            this.availableContacts = finalList;
-           // console.log('availableContacts  ::   ' + JSON.stringify(this.availableContacts));
         }
     }
 
@@ -47,6 +44,10 @@ export class CompaniesComponent implements OnInit {
         this.matDialogRef = this.matDialog.open(this.contactsLayerTemplate, {
             panelClass: 'contacts-layer'
         })
+    }
+
+    closeLayer() {
+        this.matDialogRef.close();
     }
 
 }

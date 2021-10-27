@@ -1,12 +1,15 @@
 <div class="padding">
     <div class="row">
         <div class="col-xs-12">
+            <h2>List of Companies</h2>
             <div 
                *ngFor="let selectedCompany of dataOfCompanies">
                 <div class="width100">
                     <div class="width65">
                         <div class="company-name" (click)="openLayer(); showContacts(selectedCompany)">
-                            {{ selectedCompany.name }}
+                            <span style="cursor: pointer; text-decoration: underline;">
+                                {{ selectedCompany.name }}
+                            </span>
                         </div>
                         <span class="company-description">{{ selectedCompany.description }}</span>
                     </div>
@@ -27,6 +30,7 @@
 
 <ng-template #contactsLayer>
     <mat-dialog-content>
+        <div class="close-layer" (click)="closeLayer()">Close</div>
         <div style="font-weight: bold;">Contact Person :: </div>
         <div *ngIf="showAvailableContacts && availableContacts">
             <div *ngFor="let contact of availableContacts" style="padding: 15px 0px; min-width: 500px;" class="width100">
