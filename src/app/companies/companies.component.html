@@ -29,10 +29,15 @@
     <mat-dialog-content>
         <div style="font-weight: bold;">Contact Person :: </div>
         <div *ngIf="showAvailableContacts && availableContacts">
-            <div *ngFor="let contact of availableContacts" style="padding: 15px 0px;">
-                <div>Name  :   {{contact.name}}</div>
-                <div>Country  :   {{contact.country}}</div>
-                <div>Phone  :   {{contact.phone}}</div>
+            <div *ngFor="let contact of availableContacts" style="padding: 15px 0px; min-width: 500px;" class="width100">
+                <div class="width65">
+                    <div>Name  :   {{contact.name}}</div>
+                    <div>Country  :   {{contact.country}}</div>
+                    <div>Phone  :   {{contact.phone}}</div>
+                </div>
+                <div class="width35">
+                    <button>Add</button> | <button>Edit</button> | <button (click)="deleteRecord(contact)">Delete</button>
+                </div>
             </div>
         </div>
     </mat-dialog-content>

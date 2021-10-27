@@ -38,7 +38,11 @@ export class CompaniesComponent implements OnInit {
         }
     }
 
-    
+    deleteRecord(value: any){
+        const index = this.availableContacts.indexOf(value);
+        this.availableContacts.splice(index, 1);
+    }
+
     openLayer() {
         this.matDialogRef = this.matDialog.open(this.contactsLayerTemplate, {
             panelClass: 'contacts-layer'
